@@ -19,8 +19,8 @@ Route::get('/', function () {
 
 */
 
-Route::get('/', [ProjectController::class,'getData']);
-
+//Route::get('/', [ProjectController::class,'getData']);
+Route::get('/', [ProjectController::class,'getAllDepartments']);
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

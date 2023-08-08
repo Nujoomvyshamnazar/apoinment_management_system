@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Department;
 class ProjectController extends Controller
 {
     
@@ -11,5 +11,14 @@ class ProjectController extends Controller
     {
         $data = "get Alldata";
         return view('index',['data'=>$data]);
+    }
+
+
+    public function getAllDepartments(Request $request)
+    {
+        $departments = Department::all();
+         
+        return view("index",['departments'=>$departments]);
+
     }
 }
