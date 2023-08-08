@@ -3,6 +3,10 @@
 @section('content')
 
 <div class="container-lg">
+<div class="row text-center mt-4 mb-4">
+<h2 style="color: blue">C & D Hospitals,We Take care of You.</h2>
+<h5>Best Doctors For Perfect treatment.</h5>
+</div>
 <div class="row mt-4  text-center">
 
 
@@ -20,7 +24,11 @@
     <div class="card-text mb-4">
         {{ $department->description }}
     </div>
-    <a href="#" class="btn btn-primary">Show Appointment</a>
+    <form method="post" action={{ route('showappointments') }} class="mt-5">
+        @csrf
+        <input type="text" name="department_id" value="{{ $department->id}}" style="display: none"/>
+    <input type="submit" value="Show Appointment" class="btn btn-primary"/>
+    </form>
 </div>
 </div>
 </div>
