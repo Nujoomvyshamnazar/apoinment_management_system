@@ -22,9 +22,9 @@ Route::get('/', function () {
 //Route::get('/', [ProjectController::class,'getData']);
 Route::get('/', [ProjectController::class,'getAllDepartments']);
 
-Route::post('/showappointments', [ProjectController::class,'showAppointments'])->name('showappointments');
+Route::post('/showappointments', [ProjectController::class,'showAppointments'])->name('showappointments')->middleware('auth');
 
-Route::post('/confirmbooking', [ProjectController::class,'confirmBooking'])->name('confirmbooking');
+Route::post('/confirmbooking', [ProjectController::class,'confirmBooking'])->name('confirmbooking')->middleware('auth');
 
 Route::middleware([
     'auth:sanctum',

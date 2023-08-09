@@ -3,10 +3,17 @@
 @section('content')
 
 <div class="container-lg">
+
 <div class="row text-center mt-4 mb-4">
 <h2 style="color: blue">C & D Hospitals,We Take care of You.</h2>
 <h5>Best Doctors For Perfect treatment.</h5>
 </div>
+<div class="row text-center mt-4 mb-4">
+@if(Session::has('message'))
+<p class="alert {{ Session::get('alert-class','alert-info')}}">{{ Session::get('message')}}</p>
+@endif
+</div>
+
 <div class="row mt-4  text-center">
 
 
