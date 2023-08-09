@@ -10,7 +10,7 @@
 <!-- Navigation -->
   <nav class="navbar navbar-expand-lg  bg-primary " data-bs-theme="dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">A P S Systems</a>
+      <a class="navbar-brand" href="#">C&D</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -19,13 +19,32 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/">Home</a>
           </li>
+
+          @if (Auth::guest())
           <li class="nav-item">
             <a class="nav-link" href="/login">Login</a>
           </li>
 
+          
           <li class="nav-item">
             <a class="nav-link" href="/register">Register</a>
           </li>
+
+          @else
+
+
+          <li class="nav-item">
+            <a class="nav-link" href="/mybookings">My Bookings</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/dashboard">My Dashboard</a>
+          </li>
+
+         
+        
+          
+          @endif
       
         </ul>
       

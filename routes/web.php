@@ -20,11 +20,16 @@ Route::get('/', function () {
 */
 
 //Route::get('/', [ProjectController::class,'getData']);
+
 Route::get('/', [ProjectController::class,'getAllDepartments']);
 
 Route::post('/showappointments', [ProjectController::class,'showAppointments'])->name('showappointments')->middleware('auth');
 
 Route::post('/confirmbooking', [ProjectController::class,'confirmBooking'])->name('confirmbooking')->middleware('auth');
+
+Route::get('/mybookings', [ProjectController::class,'myBookings'])->name('mybookings')->middleware('auth');
+
+Route::post('/cancelbooking',[ProjectController::class,'cancelBooking'])->name('cancelbooking')->middleware('auth');
 
 Route::middleware([
     'auth:sanctum',

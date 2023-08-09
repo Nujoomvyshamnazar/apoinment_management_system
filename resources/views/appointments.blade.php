@@ -34,7 +34,7 @@
             <input type="text" name="appointment_id" value="{{ $appointment->id}}"  style="display: none"/>
             <input type="text" name="department_name" value="{{ $appointment->department_name}}"  style="display: none"/>
             <input type="text" name="appointment_date" value="{{ $appointment->appointment_date}}"  style="display: none"/>
-            <input type="submit" value="book" class="btn btn-success" />
+            <input type="submit"  value="book" class="btn btn-success" />
             </form>
             </td>
             @endif

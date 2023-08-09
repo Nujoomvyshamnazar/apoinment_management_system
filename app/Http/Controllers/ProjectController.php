@@ -34,7 +34,7 @@ class ProjectController extends Controller
         $department_id = $request->input('department_id');
         $appointments = Appointment::where('department_id',$department_id)->get();
 
-        return view("appointments",['appointments'=>$appointments]);
+        return \view("appointments",['appointments'=>$appointments]);
     }
 
 
@@ -65,10 +65,35 @@ class ProjectController extends Controller
          $booking->user_id = Auth::user()->id;
          $booking->save();
 
+         // change status
+         Appointment::where('id',$appointment_id)->update(['taken'=>1]);
+
          Session::flash('message','Appointment Booked Successfully.');
          Session::flash('alert-class','alert-success');
          return redirect('/');
         }
 
+    }
+
+    public function myBookings(Request $request)
+    {
+       $bookings = Booking::where('user_id',Auth::user()->id)->get();
+
+       return \view('mybookings',['bookings'=>$bookings]);
+    }
+
+
+    public function cancelBooking(Request $request)
+    {
+        $booking_id = $request->input('booking_id');
+
+        Booking::where('appointment_id',$booking_id)->delete();
+
+        $statuschange = Appointment::where('id',$booking_id)->update(['taken'=>0]);
+
+        Session::flash('message','Appointment Cancelled.');
+        Session::flash('alert-class','alert-success');
+
+        return redirect('/');
     }
 }
